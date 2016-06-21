@@ -1,0 +1,51 @@
+
+        sw      $8,84($fp)
+        sw      $9,80($fp)
+        sw      $10,76($fp)
+        sw      $11,72($fp)
+        sw      $12,68($fp)
+        mfhi    $13
+        mflo    $14
+        sw      $13,64($fp)
+        sw      $14,60($fp)
+	la	$4,$LC0
+	la	$5,$LC1
+	jal	fopen
+	sw	$2,88($fp)
+	lw	$4,88($fp)
+	la	$5,$LC2
+	lw	$6, 84($fp)
+	jal	fprintf
+	lw	$4,88($fp)
+	la	$5,$LC3
+	lw	$6, 80($fp)
+	jal	fprintf
+	lw	$4,88($fp)
+	la	$5,$LC4
+	lw	$6, 76($fp)
+	jal	fprintf
+	lw	$4,88($fp)
+	la	$5,$LC5
+	lw	$6, 72($fp)
+	jal	fprintf
+	lw	$4,88($fp)
+	la	$5,$LC6
+	lw	$6, 68($fp)
+	jal	fprintf
+	lw	$4,88($fp)
+	la	$5,$LC7
+	lw	$6, 64($fp)
+	jal	fprintf
+	lw	$4,88($fp)
+	la	$5,$LC8
+	lw	$6, 60($fp)
+	jal	fprintf
+	lw	$4,88($fp)
+	jal	fclose
+$L1:
+	move	$sp,$fp			# sp not trusted here
+	lw	$31,96($sp)
+	lw	$fp,92($sp)
+	addu	$sp,$sp,100
+	j	$31
+	.end	main
