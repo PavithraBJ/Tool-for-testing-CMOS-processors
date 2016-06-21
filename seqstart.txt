@@ -1,0 +1,60 @@
+gcc2_compiled.:
+__gnu_compiled_c:
+	.sdata
+	.align	2
+$LC0:
+	.ascii	"reglog.txt\000"
+	.align	2
+$LC1:
+	.ascii	"w\000"
+	.align	2
+$LC2:
+	.ascii	"$8 = 0x%08x\n\000"
+	.align	2
+$LC3:
+	.ascii	"$9 = 0x%08x\n\000"
+	.align	2
+$LC4:
+	.ascii	"$10 = 0x%08x\n\000"
+	.align	2
+$LC5:
+	.ascii	"$11 = 0x%08x\n\000"
+	.align	2
+$LC6:
+	.ascii	"$12 = 0x%08x\n\000"
+	.align	2
+
+$LC7:
+	.ascii	"HI = 0x%08x\n\000"
+	.align	2
+$LC8:
+	.ascii	"LO = 0x%08x\n\000"
+	.align	2
+
+
+#$LC2:
+#	.ascii	"%08x\n\000"
+	.text
+	.align	2
+	.globl	main
+
+	.text
+
+	.loc	1 4
+	.ent	main
+main:
+	.frame  $fp,100,$31
+	.mask   0xfff00000,-4
+	.fmask	0x00000000,0
+	subu	$sp,$sp,40
+	sw	$31,96($sp)
+	sw	$fp,92($sp)
+	move	$fp,$sp
+	jal	__main
+	li	$2,0x00000000
+	li	$8,0x00000000
+	li	$9,0x00000000
+	li	$10,0x00000000
+	li	$11,0x00000000
+	li	$12,0x00000000
+        		
